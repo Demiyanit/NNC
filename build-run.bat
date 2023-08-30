@@ -1,9 +1,7 @@
-cmake -S ./ -B build/
+cmake -G Ninja -B build -DCMAKE_BUILD_TYPE=Debug
 
 cmake --build build/
 
 PUSHD build
-
-PUSHD Debug
 
 call nnc.exe
