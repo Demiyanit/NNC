@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(Engine
+project(CompilerProj
     VERSION 0.0.1
     LANGUAGES C CXX
 )
