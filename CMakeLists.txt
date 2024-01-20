@@ -1,49 +1,9 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(nnc
+project(Engine
     VERSION 0.0.1
-    LANGUAGES C
+    LANGUAGES C CXX
 )
 
-include_directories(
-    ${PROJECT_SOURCE_DIR}/include
-    ${PROJECT_SOURCE_DIR}/src
-)
-
-if(MSVC)
-    add_compile_options(
-        /W4 # Enable all warnings.
-        # Don't suggest the _s nonsence functions.
-        /D_CRT_SECURE_NO_WARNINGS
-        /D_CRT_SECURE_NO_WARNINGS_GLOBALS
-        /D_CRT_NONSTDC_NO_WARNINGS
-    )
-else()
-    add_compile_options(
-        -Wall
-        -Werror=return-type
-        -Wshadow
-        -Wconversion
-        -Wno-unused
-        -fsanitize=address
-        -g
-        -D_CRT_SECURE_NO_WARNINGS
-    )
-endif()
-
-file(GLOB_RECURSE SRCS
-    "${PROJECT_SOURCE_DIR}/src/*"
-    "${PROJECT_SOURCE_DIR}/src/**"
-    "${PROJECT_SOURCE_DIR}/include/*"
-    "${PROJECT_SOURCE_DIR}/include/**"
-)
-
-# comment
-
-add_executable(nnc ${SRCS})
-set_property(TARGET nnc PROPERTY C_STANDARD 17)
-set_property(TARGET nnc PROPERTY C_STANDARD_REQUIRED true)
-target_include_directories(nnc PUBLIC 
-    "${PROJECT_SOURCE_DIR}/include"
-    "${PROJECT_SOURCE_DIR}/src"
-)
+add_subdirectory(compiler)
+add_subdirectory(app)

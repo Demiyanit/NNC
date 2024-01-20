@@ -1,7 +1,0 @@
-int a = 081723087;
-auto c = "isjfih";
-
-int testfunc(int arg, char test, char* teeest) {
-    
-    return 90;
-}
